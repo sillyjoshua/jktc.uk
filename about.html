@@ -1,127 +1,162 @@
+<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | JKTC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --surface: #f8f9fa;
-            --accent: #6d28d9;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; }
+  <title>About • JKTC.uk</title>
 
-        nav {
-            height: 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 8%;
-            border-bottom: 1px solid #e5e7eb;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-        .logo { font-weight: 900; font-size: 1.5rem; color: var(--accent); text-decoration: none; letter-spacing: -1px; }
-        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 600; opacity: 0.7; }
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-        .about-section {
-            padding: 80px 8%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        .tag {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            display: block;
-        }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      color: #e2e8f0;
+    }
 
-        h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 30px; letter-spacing: -2px; }
+    header {
+      padding: 20px 40px;
+      border-bottom: 1px solid #1e293b;
+      background: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+    }
 
-        .lead {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 50px;
-            line-height: 1.4;
-        }
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
 
-        .mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 60px;
-        }
+    nav a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: 0.2s;
+    }
 
-        .mission-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-        }
+    nav a:hover {
+      color: white;
+    }
 
-        .mission-item p { color: var(--text-muted); font-size: 1rem; }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 100px 30px;
+    }
 
-        footer {
-            margin-top: 100px;
-            padding: 40px 8%;
-            border-top: 1px solid #eee;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 900;
+    }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .mission-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    h2 {
+      margin-top: 50px;
+      color: #60a5fa;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+    }
+
+    .box {
+      background: #111827;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #1e293b;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
+  <header>
     <nav>
-        <a href="index.html" class="logo">JKTC<span>.</span></a>
-        <div class="nav-links">
-            <a href="index.html">BACK TO HOME</a>
-        </div>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="https://youtube.com/@jkictech" target="_blank">youtube</a>
     </nav>
+  </header>
 
-    <main class="about-section">
-        <span class="tag">The Organization</span>
-        <h1>Engineered for <br>Discovery.</h1>
-        
-        <p class="lead">
-            JKTC was founded on a simple principle: technology should be explored, dismantled, and rebuilt—ideally without breaking the bank.
-        </p>
+  <section class="container">
+    <h1>About JKTC</h1>
 
-        <div class="mission-grid">
-            <div class="mission-item">
-                <h3>Our Vision</h3>
-                <p>To provide high-level tech insights and random experiments that push the boundaries of home-lab engineering and digital optimization.</p>
-            </div>
-            <div class="mission-item">
-                <h3>The Strategy</h3>
-                <p>Leveraging modern tools like Cloudflare, GitHub, and Python to create streamlined digital experiences for the 2026 tech landscape.</p>
-            </div>
-        </div>
+    <div class="box">
+      <p>
+        JKTC is a YouTube channel built around experimenting
+        with technology and learning through projects.
+      </p>
 
-        <div style="margin-top: 80px; padding: 40px; background: var(--surface); border-radius: 20px;">
-            <h3 style="margin-bottom: 10px;">Contact</h3>
-            <p>Interested in collaboration or have a tech question? Catch us over on the official YouTube channel or via the JKTC digital ecosystem.</p>
-        </div>
-    </main>
+      <p>
+        Content includes Linux systems, networking,
+        self-hosting, game servers, virtualization,
+        web hosting, old hardware, and random homelab ideas.
+      </p>
 
-    <footer>
-        &copy; 2026 JKTC. All rights reserved. Managed via GitHub Pages.
-    </footer>
+      <p>
+        The channel is mainly about trying things out,
+        seeing what works, breaking stuff occasionally,
+        and sharing the process.
+      </p>
+
+      <p>
+        Whether it's building servers, testing software,
+        or setting up strange configurations just for fun,
+        JKTC focuses on hands-on tech experimentation.
+      </p>
+
+      <h2>Topics</h2>
+
+      <p>
+        • Linux<br>
+        • Servers<br>
+        • Networking<br>
+        • Homelabs<br>
+        • Self-hosting<br>
+        • Tech experiments<br>
+        • Hardware projects
+      </p>
+
+      <h2>Channel</h2>
+
+      <p>
+        YouTube:
+        <a style="color:#60a5fa;" href="https://youtube.com/@jkictech" target="_blank">
+          youtube.com/@jkictech
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 JKTC.uk
+  </footer>
 
 </body>
 </html>
