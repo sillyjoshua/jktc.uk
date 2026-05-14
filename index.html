@@ -1,222 +1,231 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JKTC | Innovative Tech Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JKTC.uk</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --surface: #f8f9fa;
-            --accent: #6d28d9; /* Corporate Royal Purple */
-            --accent-light: #ede9fe;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --glass: rgba(255, 255, 255, 0.8);
-        }
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      color: #e2e8f0;
+    }
 
-        /* --- 1. CORPORATE NAV --- */
-        nav {
-            height: 70px;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 8%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #e5e7eb;
-        }
+    header {
+      padding: 20px 40px;
+      border-bottom: 1px solid #1e293b;
+      background: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+    }
 
-        .logo { 
-            font-weight: 900; 
-            font-size: 1.5rem; 
-            color: var(--accent); 
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
 
-        .nav-links a { 
-            color: var(--text-main); 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            font-weight: 600; 
-            margin-left: 30px; 
-            transition: 0.3s;
-            opacity: 0.7;
-        }
+    nav a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
 
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
+    nav a:hover {
+      color: #ffffff;
+    }
 
-        /* --- 2. ANIMATED HERO --- */
-        header {
-            padding: 100px 8%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle at top right, var(--accent-light), transparent 40%);
-        }
+    .hero {
+      max-width: 950px;
+      margin: auto;
+      padding: 120px 30px;
+      text-align: center;
+    }
 
-        .fade-up {
-            animation: fadeUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #2563eb;
+      border-radius: 999px;
+      color: #93c5fd;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      margin-bottom: 25px;
+    }
 
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-weight: 900;
+      line-height: 1.1;
+    }
 
-        h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: var(--text-main); }
-        h1 span { color: var(--accent); }
-        
-        .hero-p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+    .highlight {
+      color: #60a5fa;
+    }
 
-        .btn-yt {
-            background: var(--accent);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.2);
-        }
+    .subtitle {
+      max-width: 750px;
+      margin: 30px auto;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
 
-        .btn-yt:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(109, 40, 217, 0.3); }
+    .buttons {
+      margin-top: 40px;
+    }
 
-        /* --- 3. BENTO GRID SECTION --- */
-        .grid-container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 300px);
-            gap: 20px;
-        }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: 0.2s;
+    }
 
-        .bento-item {
-            background: var(--surface);
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid #eee;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
 
-        .bento-item:hover { border-color: var(--accent); background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+    .primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
 
-        /* Grid Spanning */
-        .large { grid-column: span 2; grid-row: span 2; background: var(--text-main); color: white; }
-        .wide { grid-column: span 2; }
+    .secondary {
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      background: #111827;
+    }
 
-        .bento-item h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .bento-item p { font-size: 0.9rem; opacity: 0.8; }
+    .secondary:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
 
-        /* --- 4. SCROLL ANIMATION TRIGGER --- */
-        .reveal {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.8s ease-in-out;
-        }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px 30px 100px;
+    }
 
-        .reveal.active {
-            opacity: 1;
-            transform: scale(1);
-        }
+    .card {
+      background: #111827;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 25px;
+      transition: 0.2s;
+    }
 
-        @media (max-width: 768px) {
-            .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .large, .wide { grid-column: span 1; }
-            h1 { font-size: 2.5rem; }
-        }
-    </style>
+    .card:hover {
+      border-color: #2563eb;
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-family: 'JetBrains Mono', monospace;
+      color: #60a5fa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #1e293b;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
+  <header>
     <nav>
-    <a href="index.html" class="logo">JKTC<span>.</span></a>
-    <div class="nav-links">
-        <a href="about.html">ABOUT</a>
-    </div>
-</nav>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="https://youtube.com/@jkictech" target="_blank">youtube</a>
+    </nav>
+  </header>
 
-<header>
-    <h1 class="fade-up">Next-Gen Tech.<br><span>Randomly Fun.</span></h1>
-    <p class="hero-p fade-up" style="animation-delay: 0.2s;">
-        JKTC is a global leader in experimental software, hardware tinkering, and finding the limit of what's possible with a £1 domain.
+  <section class="hero">
+    <div class="tag">tech • servers • linux • homelab</div>
+
+    <h1>
+      Welcome to <span class="highlight">JKTC.uk</span>
+    </h1>
+
+    <p class="subtitle">
+      A YouTube channel focused on messing around with tech,
+      servers, networking, Linux systems, self-hosting,
+      homelabs, and random hardware projects.
     </p>
-    <div class="fade-up" style="animation-delay: 0.4s;">
-        <a href="https://youtube.com/@jkictech" target="_blank" class="btn-yt">VIEW ON YOUTUBE</a>
+
+    <div class="buttons">
+      <a class="btn primary" href="https://youtube.com/@jkictech" target="_blank">
+        Visit YouTube
+      </a>
+
+      <a class="btn secondary" href="about.html">
+        About The Channel
+      </a>
     </div>
-</header>
+  </section>
 
-    <div class="grid-container">
-        <!-- Main Feature -->
-        <div class="bento-item large reveal">
-            <h3>Enterprise Innovation</h3>
-            <p>We take random ideas and turn them into scalable tech infrastructure.</p>
-        </div>
-
-        <!-- Tech Cards -->
-        <div class="bento-item wide reveal">
-            <h3 style="color: var(--accent);">Cloud Integration</h3>
-            <p>Seamlessly deploying to the edge with Cloudflare.</p>
-        </div>
-
-        <div class="bento-item reveal">
-            <h3>The Lab</h3>
-            <p>Deep dives into hardware.</p>
-        </div>
-
-        <div class="bento-item reveal">
-            <h3>Open Source</h3>
-            <p>Sharing our code with the world.</p>
-        </div>
-
-        <div class="bento-item wide reveal" style="background: var(--accent-light);">
-            <h3>2026 Roadmap</h3>
-            <p>What's next for the JKTC digital ecosystem?</p>
-        </div>
+  <section class="cards">
+    <div class="card">
+      <h3>Servers</h3>
+      <p>
+        Game servers, Linux servers, web hosting,
+        virtualization, and random infrastructure experiments.
+      </p>
     </div>
 
-    <script>
-        // Simple Scroll Reveal Logic
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        // Run once on load
-        reveal();
-    </script>
+    <div class="card">
+      <h3>Homelab</h3>
+      <p>
+        Building and testing self-hosted services,
+        networking setups, and weird hardware ideas.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Tech Projects</h3>
+      <p>
+        Trying new tools, breaking things,
+        learning from mistakes, and making cool stuff.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 JKTC.uk
+  </footer>
 
 </body>
 </html>
