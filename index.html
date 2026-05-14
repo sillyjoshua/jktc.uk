@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKTC Hub | Fun Tech & Projects</title>
+    <!-- Using Inter font for that modern tech look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --header-bg: #000000;
+            --card-bg: #1a1a1a;
+            --accent: #ff7b00; /* LTT Orange */
+            --text: #eeeeee;
+            --text-dim: #999999;
+            --nav-height: 60px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* --- 1. GLOBAL NAVIGATION --- */
+        nav {
+            height: var(--nav-height);
+            background: var(--header-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        .logo { font-weight: 900; font-size: 1.8rem; color: var(--accent); letter-spacing: -1px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 600; margin-right: 15px; transition: 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- 2. HERO / FEATURED VIDEO --- */
+        .hero {
+            width: 100%;
+            background: #000;
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .main-video {
+            position: relative;
+            background: #222;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        /* --- 3. THE HUB GRID --- */
+        .main-content {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* News on left, Sidebar on right */
+            gap: 30px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover { background: #252525; transform: scale(1.02); }
+        .card-img { width: 100%; height: 160px; background: #333; }
+        .card-body { padding: 15px; }
+        .card-label { color: var(--accent); font-size: 0.7rem; font-weight: bold; }
+        .card-title { font-size: 1rem; margin: 5px 0; display: block; }
+
+        /* --- 4. FORUM SIDEBAR --- */
+        .sidebar {
+            background: #151515;
+            padding: 20px;
+            border-radius: 4px;
+            height: fit-content;
+        }
+
+        .forum-list { list-style: none; }
+        .forum-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        .forum-item a { color: var(--text-dim); text-decoration: none; display: block; }
+        .forum-item a:hover { color: var(--text); }
+        .forum-meta { font-size: 0.7rem; color: var(--accent); margin-top: 4px; }
+
+        @media (max-width: 900px) {
+            .hero, .main-content { grid-template-columns: 1fr; }
+            .hero { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <div class="logo">JKTC</div>
+            <div class="nav-links">
+                <a href="#">VIDEOS</a>
+                <a href="#">FORUM</a>
+                <a href="#">PROJECTS</a>
+                <a href="#">LABS</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button style="background: var(--accent); border: none; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 3px;">SIGN IN</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="main-video">
+            <!-- Placeholder for a video or featured image -->
+            <div class="video-overlay">
+                <span class="card-label">FEATURED PROJECT</span>
+                <h1>How I built JKTC.uk for £1</h1>
+                <p>Testing the limits of cheap domains and Cloudflare Pages.</p>
+            </div>
+        </div>
+        <div class="sidebar" style="background: transparent; border: 1px solid #222;">
+            <h2 class="section-title">LATEST VIDEOS</h2>
+            <div class="forum-item">The "Grandma" DNS Challenge</div>
+            <div class="forum-item">GitHub vs. Cloudflare Pages</div>
+            <div class="forum-item">Setup: My 2026 Dev Environment</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section>
+            <h2 class="section-title">Latest Updates</h2>
+            <div class="news-grid">
+                <div class="card">
+                    <div class="card-img" style="background: url('https://picsum.photos/400/200?random=1') center/cover;"></div>
+                    <div class="card-body">
+                        <span class="card-label">NETWORKING</span>
+                        <strong class="card-title">Moving away from one.com DNS</strong>
+                        <p style="font-size: 0.8rem; color: #888;">It was too simple. We needed more power.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: url('https://picsum.photos/400/200?random=2') center/cover;"></div>
+                    <div class="card-body">
+                        <span class="card-label">SOFTWARE</span>
+                        <strong class="card-title">Python Scripts for Auto-Deploy</strong>
+                        <p style="font-size: 0.8rem; color: #888;">Automating the fun stuff with ease.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: url('https://picsum.photos/400/200?random=3') center/cover;"></div>
+                    <div class="card-body">
+                        <span class="card-label">TINKERING</span>
+                        <strong class="card-title">The £1 SSL Padlock Guide</strong>
+                        <p style="font-size: 0.8rem; color: #888;">Keeping the web secure on a budget.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <h2 class="section-title">Community Feed</h2>
+            <ul class="forum-list">
+                <li class="forum-item">
+                    <a href="#">Is 5GB enough for a lab?</a>
+                    <div class="forum-meta">Posted in HARDWARE • 2m ago</div>
+                </li>
+                <li class="forum-item">
+                    <a href="#">Best .uk domain registrars?</a>
+                    <div class="forum-meta">Posted in WEB • 15m ago</div>
+                </li>
+                <li class="forum-item">
+                    <a href="#">Random tech ideas for May</a>
+                    <div class="forum-meta">Posted in OFF-TOPIC • 1h ago</div>
+                </li>
+                <li class="forum-item">
+                    <a href="#">My Cloudflare Workers keep failing</a>
+                    <div class="forum-meta">Posted in TROUBLESHOOTING • 3h ago</div>
+                </li>
+            </ul>
+        </aside>
+    </main>
+
+</body>
+</html>
