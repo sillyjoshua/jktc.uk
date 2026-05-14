@@ -3,253 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JKTC Hub | Fun Tech & Projects</title>
-    <!-- Using Inter font for that modern tech look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>JKTC | Innovative Tech Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- UPDATED COLOR SCHEME --- */
-            --bg: #ffffff;           /* White Page Background */
-            --header-bg: #f5f5f5;    /* Light Gray Header */
-            --card-bg: #ffffff;      /* White Cards */
-            --card-border: #e0e0e0;  /* Light Border for definition */
-            --accent: #6a1b9a;       /* Deep Purple */
-            --text: #333333;         /* Dark Gray Text */
-            --text-dim: #666666;     /* Dim Gray Text */
-            --hero-text: #ffffff;    /* Light Text for inside hero overlay */
-            --nav-height: 60px;
+            --bg: #ffffff;
+            --surface: #f8f9fa;
+            --accent: #6d28d9; /* Corporate Royal Purple */
+            --accent-light: #ede9fe;
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --glass: rgba(255, 255, 255, 0.8);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* --- 1. GLOBAL NAVIGATION --- */
+        /* --- 1. CORPORATE NAV --- */
         nav {
-            height: var(--nav-height);
-            background: var(--header-bg);
+            height: 70px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 5%;
+            padding: 0 8%;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--accent); /* Purple Bottom Border */
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .nav-left { display: flex; align-items: center; gap: 20px; }
-        .logo { font-weight: 900; font-size: 1.8rem; color: var(--accent); letter-spacing: -1px; }
+        .logo { 
+            font-weight: 900; 
+            font-size: 1.5rem; 
+            color: var(--accent); 
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            margin-left: 30px; 
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        /* --- 2. ANIMATED HERO --- */
+        header {
+            padding: 100px 8%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top right, var(--accent-light), transparent 40%);
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: var(--text-main); }
+        h1 span { color: var(--accent); }
         
-        /* Updated nav links to be dark against the light background */
-        .nav-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; margin-right: 15px; transition: 0.2s; }
-        .nav-links a:hover { color: var(--accent); }
+        .hero-p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
 
-        /* --- 2. HERO / FEATURED VIDEO --- */
-        .hero {
-            width: 100%;
-            background: #e0e0e0; /* Light Gray for Hero section background */
-            padding: 40px 5%;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
+        .btn-yt {
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.2);
         }
 
-        .main-video {
-            position: relative;
-            background: #ccc; /* Placeholder Color */
-            aspect-ratio: 16 / 9;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #b3b3b3;
-        }
+        .btn-yt:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(109, 40, 217, 0.3); }
 
-        .video-overlay {
-            position: absolute;
-            bottom: 0; width: 100%;
-            padding: 30px;
-            /* Update gradient for dark overlay with white text */
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: var(--hero-text);
-        }
-
-        /* Hero h1 needs light color due to overlay */
-        .hero h1 { color: var(--hero-text); }
-        .hero p { color: #cccccc; } /* Lighter dim text inside overlay */
-
-        /* --- 3. THE HUB GRID --- */
-        .main-content {
-            max-width: 1300px;
-            margin: 40px auto;
+        /* --- 3. BENTO GRID SECTION --- */
+        .grid-container {
+            max-width: 1200px;
+            margin: 50px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 3fr 1fr; /* News on left, Sidebar on right */
-            gap: 30px;
-        }
-
-        .section-title {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 20px;
-            font-weight: 900;
-        }
-
-        /* News Grid */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
             gap: 20px;
         }
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: 0.3s;
-            cursor: pointer;
-            border: 1px solid var(--card-border); /* Add border for cards in light theme */
+        .bento-item {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid #eee;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
-        .card:hover { background: #f9f9f9; transform: scale(1.02); border-color: var(--accent); }
-        .card-img { width: 100%; height: 160px; background: #e0e0e0; }
-        .card-body { padding: 15px; }
-        .card-label { color: var(--accent); font-size: 0.7rem; font-weight: bold; }
-        .card-title { font-size: 1rem; margin: 5px 0; display: block; }
-        .card p { color: var(--text-dim); }
+        .bento-item:hover { border-color: var(--accent); background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
-        /* --- 4. FORUM SIDEBAR --- */
-        .sidebar {
-            background: #f9f9f9; /* Off-White for sidebar background */
-            padding: 20px;
-            border-radius: 4px;
-            height: fit-content;
-            border: 1px solid var(--card-border);
+        /* Grid Spanning */
+        .large { grid-column: span 2; grid-row: span 2; background: var(--text-main); color: white; }
+        .wide { grid-column: span 2; }
+
+        .bento-item h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .bento-item p { font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- 4. SCROLL ANIMATION TRIGGER --- */
+        .reveal {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s ease-in-out;
         }
 
-        .forum-list { list-style: none; }
-        .forum-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 0.85rem;
+        .reveal.active {
+            opacity: 1;
+            transform: scale(1);
         }
 
-        /* Forum lists now against light bg */
-        .forum-item { color: var(--text); }
-        .forum-item a { color: var(--text-dim); text-decoration: none; display: block; }
-        .forum-item a:hover { color: var(--accent); }
-        .forum-meta { font-size: 0.7rem; color: var(--accent); margin-top: 4px; }
-
-        /* Special styling for "Latest Videos" inside hero section */
-        .hero-sidebar {
-            background: #ffffff;
-            border: 1px solid #b3b3b3;
-            padding: 20px;
-            border-radius: 4px;
-            height: fit-content;
-        }
-        .hero-sidebar .forum-item { color: #333; border-bottom: 1px solid #ccc; }
-
-        @media (max-width: 900px) {
-            .hero, .main-content { grid-template-columns: 1fr; }
-            .hero { padding: 10px; }
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .large, .wide { grid-column: span 1; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-left">
-            <div class="logo">JKTC</div>
-            <div class="nav-links">
-                <a href="#">VIDEOS</a>
-                <a href="#">FORUM</a>
-                <a href="#">PROJECTS</a>
-                <a href="#">LABS</a>
-            </div>
-        </div>
-        <div class="nav-right">
-            <button style="background: var(--accent); color: white; border: none; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 3px;">SIGN IN</button>
+        <a href="#" class="logo">JKTC<span>.</span></a>
+        <div class="nav-links">
+            <a href="#">SOLUTIONS</a>
+            <a href="#">LABS</a>
+            <a href="#">ABOUT</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="main-video">
-            <!-- Placeholder for a video or featured image -->
-            <div class="video-overlay">
-                <span class="card-label">FEATURED PROJECT</span>
-                <h1>How I built JKTC.uk for £1</h1>
-                <p>Testing the limits of cheap domains and Cloudflare Pages.</p>
-            </div>
-        </div>
-        <!-- Special Hero Sidebar -->
-        <div class="hero-sidebar">
-            <h2 class="section-title">LATEST VIDEOS</h2>
-            <div class="forum-item">The "Grandma" DNS Challenge</div>
-            <div class="forum-item">GitHub vs. Cloudflare Pages</div>
-            <div class="forum-item">Setup: My 2026 Dev Environment</div>
+    <header>
+        <h1 class="fade-up">Next-Gen Tech.<br><span>Randomly Fun.</span></h1>
+        <p class="hero-p fade-up" style="animation-delay: 0.2s;">
+            JKTC is a global leader in experimental software, hardware tinkering, and finding the limit of what's possible with a £1 domain.
+        </p>
+        <div class="fade-up" style="animation-delay: 0.4s;">
+            <a href="https://youtube.com/@jkictech" target="_blank" class="btn-yt">VIEW ON YOUTUBE</a>
         </div>
     </header>
 
-    <main class="main-content">
-        <section>
-            <h2 class="section-title">Latest Updates</h2>
-            <div class="news-grid">
-                <div class="card">
-                    <div class="card-img" style="background: url('https://picsum.photos/400/200?random=1') center/cover;"></div>
-                    <div class="card-body">
-                        <span class="card-label">NETWORKING</span>
-                        <strong class="card-title">Moving away from one.com DNS</strong>
-                        <p style="font-size: 0.8rem;">It was too simple. We needed more power.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img" style="background: url('https://picsum.photos/400/200?random=2') center/cover;"></div>
-                    <div class="card-body">
-                        <span class="card-label">SOFTWARE</span>
-                        <strong class="card-title">Python Scripts for Auto-Deploy</strong>
-                        <p style="font-size: 0.8rem;">Automating the fun stuff with ease.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img" style="background: url('https://picsum.photos/400/200?random=3') center/cover;"></div>
-                    <div class="card-body">
-                        <span class="card-label">TINKERING</span>
-                        <strong class="card-title">The £1 SSL Padlock Guide</strong>
-                        <p style="font-size: 0.8rem;">Keeping the web secure on a budget.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="grid-container">
+        <!-- Main Feature -->
+        <div class="bento-item large reveal">
+            <h3>Enterprise Innovation</h3>
+            <p>We take random ideas and turn them into scalable tech infrastructure.</p>
+        </div>
 
-        <aside class="sidebar">
-            <h2 class="section-title">Community Feed</h2>
-            <ul class="forum-list">
-                <li class="forum-item">
-                    <a href="#">Is 5GB enough for a lab?</a>
-                    <div class="forum-meta">Posted in HARDWARE • 2m ago</div>
-                </li>
-                <li class="forum-item">
-                    <a href="#">Best .uk domain registrars?</a>
-                    <div class="forum-meta">Posted in WEB • 15m ago</div>
-                </li>
-                <li class="forum-item">
-                    <a href="#">Random tech ideas for May</a>
-                    <div class="forum-meta">Posted in OFF-TOPIC • 1h ago</div>
-                </li>
-                <li class="forum-item">
-                    <a href="#">My Cloudflare Workers keep failing</a>
-                    <div class="forum-meta">Posted in TROUBLESHOOTING • 3h ago</div>
-                </li>
-            </ul>
-        </aside>
-    </main>
+        <!-- Tech Cards -->
+        <div class="bento-item wide reveal">
+            <h3 style="color: var(--accent);">Cloud Integration</h3>
+            <p>Seamlessly deploying to the edge with Cloudflare.</p>
+        </div>
+
+        <div class="bento-item reveal">
+            <h3>The Lab</h3>
+            <p>Deep dives into hardware.</p>
+        </div>
+
+        <div class="bento-item reveal">
+            <h3>Open Source</h3>
+            <p>Sharing our code with the world.</p>
+        </div>
+
+        <div class="bento-item wide reveal" style="background: var(--accent-light);">
+            <h3>2026 Roadmap</h3>
+            <p>What's next for the JKTC digital ecosystem?</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple Scroll Reveal Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Run once on load
+        reveal();
+    </script>
 
 </body>
 </html>
